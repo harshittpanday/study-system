@@ -5,7 +5,7 @@ A personal productivity and study management web app built using **HTML, CSS, an
 ---
 
 ## 🚀 Live Demo
-https://your-username.github.io/study-system/
+https://harshittpanday.github.io/study-system/
 
 ---
 
