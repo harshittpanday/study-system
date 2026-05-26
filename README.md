@@ -83,4 +83,4 @@ It also acts as a personal study productivity tool.
 
 ## 👨‍💻 Author
 
-Built by developer Harshit Pandey exploring frontend systems and productivity tools.
+Built by developer Harshit Pandey exploring frontend systems and productivity tools. 
