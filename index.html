@@ -1,18 +1,17 @@
-<!-- =========================
-        index.html
-========================= -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0">
 
   <title>Study System</title>
 
   <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -87,7 +86,7 @@
 
   <br><br>
 
-  <!-- GOAL -->
+  <!-- GOAL SECTION -->
 
   <h3 id="goalText">
     Daily Goal: 0 Tasks
@@ -95,7 +94,8 @@
 
   <input id="goalInput"
     type="number"
-    placeholder="Set Goal">
+    placeholder="Set Goal"
+    onkeydown="if(event.key==='Enter') setGoal()">
 
   <button onclick="setGoal()">
     Set Goal
@@ -113,12 +113,13 @@
 
   </div>
 
-  <!-- TASKS -->
+  <!-- TASK SECTION -->
 
   <h2>Tasks</h2>
 
   <input id="taskInput"
-    placeholder="Enter task">
+    placeholder="Enter task"
+    onkeydown="if(event.key==='Enter') addTask()">
 
   <button class="add-btn"
     onclick="addTask()">
@@ -143,7 +144,8 @@
   <h2>Topics</h2>
 
   <input id="subjectInput"
-    placeholder="Enter topic">
+    placeholder="Enter topic"
+    onkeydown="if(event.key==='Enter') addSubjectTask()">
 
   <button onclick="addSubjectTask()">
     Add Topic
@@ -182,7 +184,9 @@
 
   </button>
 
-  <h2 id="timer">00:00</h2>
+  <h2 id="timer">
+    00:00
+  </h2>
 
   <br><br>
 
@@ -191,7 +195,8 @@
   <h2>Notes</h2>
 
   <input id="noteInput"
-    placeholder="Write a note...">
+    placeholder="Write a note..."
+    onkeydown="if(event.key==='Enter') addNote()">
 
   <button onclick="addNote()">
     Add Note

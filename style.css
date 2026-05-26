@@ -283,3 +283,52 @@ li {
   margin: 8px auto;
   width: 80%;
 }
+button:hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+li:hover {
+  box-shadow: 0 0 10px cyan;
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 0 10px cyan;
+}
+/* SMOOTH ANIMATIONS */
+
+button,
+input,
+li {
+  transition: 0.3s;
+}
+
+/* BUTTON HOVER */
+
+button:hover {
+
+  transform: scale(1.08);
+
+  opacity: 0.9;
+}
+
+/* TASK CARD HOVER */
+
+li:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 10px cyan,
+    0 0 20px cyan;
+}
+
+/* INPUT FOCUS */
+
+input:focus {
+
+  outline: none;
+
+  box-shadow:
+    0 0 10px cyan,
+    0 0 20px cyan;
+}

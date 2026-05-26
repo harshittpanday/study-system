@@ -1,8 +1,8 @@
 /* =========================
-        script.js
+        STUDY SYSTEM V1
 ========================= */
 
-/* ---------------- STORAGE ---------------- */
+/* ================= STORAGE ================= */
 
 let savedTasks =
   JSON.parse(localStorage.getItem("tasks")) || [];
@@ -11,12 +11,12 @@ let savedNotes =
   JSON.parse(localStorage.getItem("notes")) || [];
 
 let dailyGoal =
-  localStorage.getItem("dailyGoal") || 0;
+  Number(localStorage.getItem("dailyGoal")) || 0;
 
 let streak =
-  localStorage.getItem("streak") || 0;
+  Number(localStorage.getItem("streak")) || 0;
 
-/* ---------------- TIMER ---------------- */
+/* ================= TIMER ================= */
 
 let timerRunning = false;
 
@@ -31,10 +31,13 @@ function addTask() {
   let input =
     document.getElementById("taskInput");
 
-  if (!input.value.trim()) return;
+  let text =
+    input.value.trim();
+
+  if (text === "") return;
 
   let task = {
-    text: input.value,
+    text: text,
     completed: false
   };
 
@@ -60,6 +63,8 @@ function createTask(taskText, completed) {
   let li =
     document.createElement("li");
 
+  /* CHECKBOX */
+
   let checkbox =
     document.createElement("input");
 
@@ -74,17 +79,40 @@ function createTask(taskText, completed) {
     updateProgress();
   };
 
+  /* TASK TEXT */
+
   let span =
     document.createElement("span");
 
   span.innerText = taskText;
 
-  let btn =
+  /* EDIT BUTTON */
+
+  let editBtn =
     document.createElement("button");
 
-  btn.innerHTML = "🗑️";
+  editBtn.innerHTML = "✏️";
 
-  btn.onclick = function () {
+  editBtn.onclick = function () {
+
+    let newText =
+      prompt("Edit task:", span.innerText);
+
+    if (!newText || !newText.trim()) return;
+
+    span.innerText = newText;
+
+    updateStorage();
+  };
+
+  /* DELETE BUTTON */
+
+  let deleteBtn =
+    document.createElement("button");
+
+  deleteBtn.innerHTML = "🗑️";
+
+  deleteBtn.onclick = function () {
 
     li.remove();
 
@@ -93,11 +121,15 @@ function createTask(taskText, completed) {
     updateProgress();
   };
 
+  /* APPEND */
+
   li.appendChild(checkbox);
 
   li.appendChild(span);
 
-  li.appendChild(btn);
+  li.appendChild(editBtn);
+
+  li.appendChild(deleteBtn);
 
   list.appendChild(li);
 }
@@ -132,17 +164,14 @@ function updateStorage() {
 
 function updateProgress() {
 
-  let tasks =
-    document.querySelectorAll("#taskList li");
+  let total =
+    document.querySelectorAll("#taskList li")
+    .length;
 
-  let completed =
+  let done =
     document.querySelectorAll(
       '#taskList input[type="checkbox"]:checked'
-    );
-
-  let total = tasks.length;
-
-  let done = completed.length;
+    ).length;
 
   let percent =
     total === 0
@@ -150,31 +179,46 @@ function updateProgress() {
       : (done / total) * 100;
 
   document.getElementById("progressBar")
-    .style.width = percent + "%";
+    .style.width =
+    percent + "%";
 
   document.getElementById("progressText")
     .innerText =
     `${done} / ${total} Tasks Completed`;
 
-  checkStreak(done);
+  updateAnalytics();
+
+  updateStreak(done);
+}
+
+function clearTasks() {
+
+  document.getElementById("taskList")
+    .innerHTML = "";
+
+  savedTasks = [];
+
+  localStorage.removeItem("tasks");
+
+  updateProgress();
 
   updateAnalytics();
 }
 
 /* ================= STREAK ================= */
 
-function checkStreak(done) {
+function updateStreak(done) {
 
   let today =
     new Date().toLocaleDateString();
 
-  let lastCheck =
-    localStorage.getItem("lastCheck");
+  let lastCompleted =
+    localStorage.getItem("lastCompletedDate");
 
   if (
     done >= dailyGoal &&
     dailyGoal > 0 &&
-    lastCheck !== today
+    lastCompleted !== today
   ) {
 
     streak++;
@@ -185,7 +229,7 @@ function checkStreak(done) {
     );
 
     localStorage.setItem(
-      "lastCheck",
+      "lastCompletedDate",
       today
     );
   }
@@ -199,8 +243,11 @@ function checkStreak(done) {
 
 function setGoal() {
 
+  let input =
+    document.getElementById("goalInput");
+
   let goal =
-    document.getElementById("goalInput").value;
+    Number(input.value);
 
   if (goal <= 0) return;
 
@@ -215,7 +262,7 @@ function setGoal() {
     .innerText =
     `Daily Goal: ${goal} Tasks`;
 
-  document.getElementById("goalInput").value = "";
+  input.value = "";
 }
 
 /* ================= TIMER ================= */
@@ -225,7 +272,8 @@ function startTimer() {
   if (timerRunning) return;
 
   let minutes =
-    document.getElementById("minutesInput").value;
+    document.getElementById("minutesInput")
+    .value;
 
   if (time === 0) {
 
@@ -238,9 +286,11 @@ function startTimer() {
 
   interval = setInterval(function () {
 
-    let min = Math.floor(time / 60);
+    let min =
+      Math.floor(time / 60);
 
-    let sec = time % 60;
+    let sec =
+      time % 60;
 
     document.getElementById("timer")
       .innerText =
@@ -286,12 +336,15 @@ function addSubjectTask() {
   let input =
     document.getElementById("subjectInput");
 
-  if (!input.value.trim()) return;
+  let text =
+    input.value.trim();
+
+  if (text === "") return;
 
   let li =
     document.createElement("li");
 
-  li.innerText = input.value;
+  li.innerText = text;
 
   let btn =
     document.createElement("button");
@@ -299,6 +352,7 @@ function addSubjectTask() {
   btn.innerHTML = "🗑️";
 
   btn.onclick = function () {
+
     li.remove();
   };
 
@@ -317,11 +371,14 @@ function addNote() {
   let input =
     document.getElementById("noteInput");
 
-  if (!input.value.trim()) return;
+  let text =
+    input.value.trim();
+
+  if (text === "") return;
 
   let note = {
     id: Date.now(),
-    text: input.value
+    text: text
   };
 
   savedNotes.push(note);
@@ -390,12 +447,12 @@ function createNote(text, id) {
 
   /* DELETE */
 
-  let delBtn =
+  let deleteBtn =
     document.createElement("button");
 
-  delBtn.innerHTML = "🗑️";
+  deleteBtn.innerHTML = "🗑️";
 
-  delBtn.onclick = function () {
+  deleteBtn.onclick = function () {
 
     li.remove();
 
@@ -416,7 +473,7 @@ function createNote(text, id) {
 
   li.appendChild(editBtn);
 
-  li.appendChild(delBtn);
+  li.appendChild(deleteBtn);
 
   list.appendChild(li);
 }
@@ -434,7 +491,7 @@ function updateAnalytics() {
       '#taskList input[type="checkbox"]:checked'
     ).length;
 
-  let rate =
+  let completionRate =
     totalTasks === 0
       ? 0
       : Math.round(
@@ -451,7 +508,7 @@ function updateAnalytics() {
 
   document.getElementById("completionRate")
     .innerText =
-    `Completion Rate: ${rate}%`;
+    `Completion Rate: ${completionRate}%`;
 
   document.getElementById("totalNotes")
     .innerText =
@@ -523,14 +580,11 @@ function uploadAvatar() {
 /* ================= DARK MODE ================= */
 
 document.getElementById("modeToggle")
-  .addEventListener(
-    "change",
-    function () {
+  .addEventListener("change", function () {
 
-      document.body.classList
-        .toggle("light-mode");
-    }
-  );
+    document.body.classList
+      .toggle("light-mode");
+  });
 
 /* ================= CLOCK ================= */
 
@@ -548,20 +602,6 @@ setInterval(updateClock, 1000);
 
 updateClock();
 
-/* ================= CLEAR ================= */
-
-function clearTasks() {
-
-  document.getElementById("taskList")
-    .innerHTML = "";
-
-  savedTasks = [];
-
-  localStorage.removeItem("tasks");
-
-  updateProgress();
-}
-
 /* ================= LOAD SAVED DATA ================= */
 
 /* TASKS */
@@ -569,7 +609,6 @@ function clearTasks() {
 savedTasks.forEach(task => {
 
   createTask(task.text, task.completed);
-
 });
 
 /* NOTES */
@@ -577,7 +616,6 @@ savedTasks.forEach(task => {
 savedNotes.forEach(note => {
 
   createNote(note.text, note.id);
-
 });
 
 /* USERNAME */
