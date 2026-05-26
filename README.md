@@ -42,7 +42,7 @@ https://harshittpanday.github.io/study-system/
 - Set daily task goals
 - Tracks progress toward goal
 
-### 🎨 UI Features
+### 🎨 UI Features 
 - Dark / Light mode toggle
 - Profile system (username + avatar)
 - Live clock display
