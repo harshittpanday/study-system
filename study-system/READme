@@ -1,0 +1,47 @@
+# 🗂️ Personal Tabs Dashboard
+
+A simple personal homepage built to organize frequently used websites and tools in one place for quick access.
+
+---
+
+## 🚀 Purpose
+
+This project is designed as a personal productivity hub to reduce time spent searching for commonly used websites and services.
+
+---
+
+## 📁 Categories
+
+- **Utilities** – Development and productivity tools  
+- **Social** – Communication and social platforms  
+- **Web Editors** – Design and website tools  
+- **My Websites** – Personal projects and builds  
+
+---
+
+## 🛠️ Built With
+
+- HTML
+- CSS
+- JavaScript
+
+---
+
+## 💡 Features
+
+- Organized quick-access tabs
+- Clean categorized layout
+- Lightweight and fast
+- Fully browser-based (no backend)
+
+---
+
+## 👨‍💻 Use Case
+
+Serves as a personal start page for daily browsing and workflow optimization.
+
+---
+
+## 📌 Note
+
+This is a personal utility project and is continuously updated based on user workflow.

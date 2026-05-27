@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Study System</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="manifest" href="manifest.json">
+
+</head>
+
+<body>
+
+  <!-- THEME TOGGLE -->
+
+  <div class="theme-switch">
+
+    <span>🌙</span>
+
+    <label class="switch">
+
+      <input type="checkbox" id="modeToggle">
+
+      <span class="slider"></span>
+
+    </label>
+
+    <span>☀️</span>
+
+  </div>
+
+  <!-- SETTINGS -->
+
+  <div class="settings-container">
+
+    <button class="settings-btn"
+      onclick="toggleSettings()">
+
+      ⚙️
+
+    </button>
+
+    <div id="settingsMenu"
+      class="settings-menu">
+
+      <p onclick="changeName()">
+        Change Username
+      </p>
+
+      <label for="avatarInput">
+        Change Profile Picture
+      </label>
+
+      <input type="file"
+        id="avatarInput"
+        accept="image/*"
+        onchange="uploadAvatar()"
+        hidden>
+
+    </div>
+
+  </div>
+
+  <!-- HEADER -->
+
+  <h1>Study System</h1>
+
+  <h2 id="welcomeText">
+    Welcome!
+  </h2>
+
+  <h3 id="streakText">
+    🔥 Streak: 0 day(s)
+  </h3>
+
+  <h3 id="dateTime"></h3>
+
+  <img id="profilePic"
+    src="https://via.placeholder.com/100"
+    alt="Profile Picture">
+
+  <br><br>
+
+  <!-- GOAL SECTION -->
+
+  <h3 id="goalText">
+    Daily Goal: 0 Tasks
+  </h3>
+
+  <input id="goalInput"
+    type="number"
+    placeholder="Set Goal"
+    onkeydown="if(event.key==='Enter') setGoal()">
+
+  <button onclick="setGoal()">
+    Set Goal
+  </button>
+
+  <!-- PROGRESS -->
+
+  <h3 id="progressText">
+    0 / 0 Tasks Completed
+  </h3>
+
+  <div class="progress-container">
+
+    <div id="progressBar"></div>
+
+  </div>
+
+  <!-- TASK SECTION -->
+
+  <h2>Tasks</h2>
+
+  <input id="taskInput"
+    placeholder="Enter task"
+    onkeydown="if(event.key==='Enter') addTask()">
+
+  <button class="add-btn"
+    onclick="addTask()">
+
+    Add Task
+
+  </button>
+
+  <button class="clear-btn"
+    onclick="clearTasks()">
+
+    Clear All
+
+  </button>
+
+  <ul id="taskList"></ul>
+
+  <br><br>
+
+  <!-- TOPICS -->
+
+  <h2>Topics</h2>
+
+  <input id="subjectInput"
+    placeholder="Enter topic"
+    onkeydown="if(event.key==='Enter') addSubjectTask()">
+
+  <button onclick="addSubjectTask()">
+    Add Topic
+  </button>
+
+  <ul id="subjectList"></ul>
+
+  <br><br>
+
+  <!-- TIMER -->
+
+  <h2>Study Timer</h2>
+
+  <input id="minutesInput"
+    type="number"
+    placeholder="Minutes">
+
+  <button class="start-btn"
+    onclick="startTimer()">
+
+    Start
+
+  </button>
+
+  <button class="stop-btn"
+    onclick="stopTimer()">
+
+    Stop
+
+  </button>
+
+  <button class="reset-btn"
+    onclick="resetTimer()">
+
+    Reset
+
+  </button>
+
+  <h2 id="timer">
+    00:00
+  </h2>
+
+  <br><br>
+
+  <!-- NOTES -->
+
+  <h2>Notes</h2>
+
+  <input id="noteInput"
+    placeholder="Write a note..."
+    onkeydown="if(event.key==='Enter') addNote()">
+
+  <button onclick="addNote()">
+    Add Note
+  </button>
+
+  <ul id="noteList"></ul>
+
+  <br><br>
+
+  <!-- ANALYTICS -->
+
+  <h2>📊 Analytics Dashboard</h2>
+
+  <div id="analyticsBox">
+
+    <p id="totalTasks">
+      Total Tasks: 0
+    </p>
+
+    <p id="completedTasks">
+      Completed Tasks: 0
+    </p>
+
+    <p id="completionRate">
+      Completion Rate: 0%
+    </p>
+
+    <p id="totalNotes">
+      Total Notes: 0
+    </p>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+
+</html>
