@@ -1,85 +1,101 @@
 # 📚 Study System
 
-A personal productivity and study management web app built using **HTML, CSS, and JavaScript**.
-
----
+A personal productivity and study management web app built using HTML, CSS, and JavaScript.
 
 ## 🚀 Live Demo
+
 https://harshittpanday.github.io/study-system/
+
 ---
 
-## 📌 Features
+# ✨ Features
 
-### 🧠 Productivity System
-- Add and manage daily tasks
+## 🧠 Productivity System
+- Add daily tasks
+- Edit tasks
+- Delete tasks
 - Mark tasks as completed
-- Persistent storage using localStorage
+- Progress tracking system
 
-### 📊 Analytics Dashboard
-- Total tasks created
-- Completed tasks count
-- Completion rate percentage
-- Notes tracking
+## 🔥 Study Streak System
+- Tracks consistency
+- Increases streak after completing daily goals
+- Persistent streak saving using LocalStorage
 
-### 🔥 Study Streak System
-- Tracks daily consistency
-- Increases streak only when daily goal is completed
-- Resets if a day is missed
+## 🎯 Goal System
+- Set daily study goals
+- Progress updates automatically
 
-### ⏱ Timer
-- Focus study timer
-- Start / stop / reset functionality
-- Alarm when session ends
-
-### 📝 Notes System
+## 📝 Notes System
 - Add notes
 - Edit notes
 - Delete notes
-- Saved automatically in browser
+- Notes saved automatically
 
-### 🎯 Goal System
-- Set daily task goals
-- Tracks progress toward goal
+## 📊 Analytics Dashboard
+- Total tasks created
+- Completed task count
+- Completion percentage
+- Notes tracking
 
-### 🎨 UI Features 
-- Dark / Light mode toggle
-- Profile system (username + avatar)
+## ⏱ Study Timer
+- Start / stop / reset timer
+- Session completion alert
+
+## 👤 Profile System
+- Custom username
+- Upload profile picture
+- Saved locally in browser
+
+## 🎨 UI Features
+- Dark / Light mode
+- Responsive design
+- Smooth hover animations
 - Live clock display
-- Topics section for organization
+
+## 📱 PWA Support
+- Installable web app
+- Offline caching support
+- Mobile-friendly experience
 
 ---
 
-## 🛠 Tech Stack
+# 🛠 Tech Stack
 
 - HTML5
 - CSS3
-- JavaScript (Vanilla)
+- JavaScript (Vanilla JS)
 - LocalStorage API
+- Service Workers
+- PWA Manifest
 
 ---
 
-## 💡 Purpose
+# 💡 Purpose
 
 This project was built to practice:
 - DOM manipulation
-- State management in vanilla JS
+- State management
 - Local storage persistence
-- UI/UX structure design
+- UI/UX improvements
+- PWA fundamentals
+- Frontend project structure
 
-It also acts as a personal study productivity tool.
-
----
-
-## 📈 Future Improvements (V2 / V3)
-
-- Task priority system
-- Search and filters
-- Weekly analytics graphs
-- PWA (installable app)
-- Cloud sync support
+It also acts as a personal study productivity application.
 
 ---
 
-## 👨‍💻 Author
+# 📈 Future Improvements
 
-Built by developer Harshit Pandey exploring frontend systems and productivity tools. 
+- 🎵 Lo-fi music mode
+- 📅 Study calendar
+- 🏆 Achievement system
+- ☁️ Cloud sync
+- 📈 Weekly analytics graphs
+- 🤖 AI-powered study tools
+
+---
+
+# 👨‍💻 Author
+
+Built by a student developer exploring frontend development, productivity systems, and web applications.
