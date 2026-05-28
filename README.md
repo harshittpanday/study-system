@@ -82,18 +82,6 @@ This project was built to practice:
 - Frontend project structure
 
 It also acts as a personal study productivity application.
-
----
-
-# 📈 Future Improvements
-
-- 🎵 Lo-fi music mode
-- 📅 Study calendar
-- 🏆 Achievement system
-- ☁️ Cloud sync
-- 📈 Weekly analytics graphs
-- 🤖 AI-powered study tools
-
 ---
 
 # 👨‍💻 Author
