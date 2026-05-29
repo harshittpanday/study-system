@@ -675,3 +675,14 @@ if ("serviceWorker" in navigator) {
       });
   });
 }
+// OPEN STUDY AI
+document
+.getElementById("study-ai-float")
+.addEventListener("click",()=>{
+
+    window.open(
+        "https://harshittpanday.github.io/study-ai/",
+        "_blank"
+    );
+
+});
