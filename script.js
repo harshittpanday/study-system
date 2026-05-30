@@ -675,14 +675,16 @@ if ("serviceWorker" in navigator) {
       });
   });
 }
-// OPEN STUDY AI
-document
-.getElementById("study-ai-float")
-.addEventListener("click",()=>{
+const aiBtn =
+  document.getElementById("study-ai-float");
 
-    window.open(
-        "https://harshittpanday.github.io/study-ai/",
-        "_blank"
-    );
+if (aiBtn) {
 
-});
+  aiBtn.addEventListener("click", () => {
+
+    window.location.href =
+      "https://harshittpanday.github.io/study-ai/";
+
+  });
+
+}
